@@ -9,4 +9,5 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+  { "ellisonleao/glow.nvim", config = true, cmd = "Glow" }
 }
