@@ -11,6 +11,33 @@ return {
   -- },
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   {
+    "CRAG666/code_runner.nvim",
+    config = function()
+      require('code_runner').setup {
+
+        filetype = {
+          java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+          python = "python3 -u",
+          typescript = "deno run",
+          javascript = "node $fileName",
+          rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
+          -- cpp="gcc $fileName -lstdc++ -o $fileNameWithoutExt && $fileNameWithoutExt"
+          cpp =
+          "cd $dir && rm -f $fileNameWithoutExt && g++ $fileName -std=c++17 -O2 -Wall -o $fileNameWithoutExt && echo -e \"\\e[1;32mOutput:\\e[1;0m\" && ./$fileNameWithoutExt",
+          scss = "sass $dir/$fileName $dir/$fileNameWithoutExt.css",
+        },
+      }
+    end,
+    ft = { 'cpp', 'python', 'java', 'javascript', 'rust', 'scss' },
+    -- lazy = true,
+  },
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      require('onedark').load()
+    end,
+  },
+  {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
     build = function()

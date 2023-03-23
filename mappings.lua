@@ -8,6 +8,13 @@ return {
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
+    ["<leader>rr"] = { "<cmd>RunCode<cr>", desc = "Run code" },
+    ["<leader>rf"] = { "<cmd>RunFile<cr>", desc = "Run file" },
+    ["<leader>rp"] = { "<cmd>RunProject<cr>", desc = "Run project" },
+    ["<leader>rc"] = { "<cmd>RunClose<cr>", desc = "Close runner" },
+    -- ["<leader>rd"] = { "<cmd>!c++ -g -std=c++17 <cr>", desc = "Debug current file" },
+    ["<leader>r"] = { name = "Run" },
+    --
     ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
     ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
