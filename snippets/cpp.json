@@ -1,0 +1,143 @@
+{
+  "Template": {
+    "prefix": "AN",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "#define ll long long",
+      "#define ii pair<int, int>",
+      "#define fi first",
+      "#define se second",
+      "using namespace std;",
+      "",
+      "const int MAXN = 2e5 + 6;",
+      "const int MOD = 1e9 + 7;",
+      "",
+      "int main(int argc, char const *argv[]) {",
+      "\tcin.tie(0)->sync_with_stdio(0);",
+      "\tif (fopen(\"input.txt\", \"r\")) {",
+      "\t\tfreopen(\"input.txt\", \"r\", stdin);",
+      "\t}",
+      "\t",
+      "\t$0",
+      "\treturn 0;",
+      "}"
+    ],
+    "description": "Default template"
+  },
+  "64-bit integer": {
+    "prefix": "i64",
+    "body": [
+      "int64_t"
+    ],
+    "description": "int64_t"
+  },
+  "Endline": {
+    "prefix": "ENDL",
+    "body": [
+      "\"\\n\""
+    ],
+    "description": "endl"
+  },
+  "all element": {
+    "prefix": "all",
+    "body": [
+      "${1:a}.begin(), ${1:a}.end()${0}"
+    ],
+    "description": "All elements"
+  },
+  "Clear stdin": {
+    "prefix": "clear stdin",
+    "body": [
+      "std::cin.ignore(INT_MAX);"
+    ],
+    "description": "ignore stdin"
+  },
+  "rng": {
+    "prefix": "rng",
+    "body": [
+      "mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());//64-bit number generator"
+    ],
+    "description": "random number genarator"
+  },
+  "yesno": {
+    "prefix": "YESNO",
+    "body": [
+      "cout << ((${1}) ? \"YES\\n\" : \"NO\\n\"); ${0}"
+    ],
+    "description": "snippet for vector"
+  },
+  "vector": {
+    "prefix": "vec",
+    "body": [
+      "vector<${1:int}> ${0}"
+    ],
+    "description": "snippet for vector"
+  },
+  "multi_test_cases": {
+    "prefix": "test_cases",
+    "body": [
+      "int T = 1;",
+      "cin >> T;",
+      "while (T--) {",
+      "\t${0}",
+      "}"
+    ],
+    "description": "Multiple test cases"
+  },
+  "debug_template": {
+    "prefix": "debug_template",
+    "body": [
+      "//Template for debugging",
+      "#ifndef ONLINE_JUDGE",
+      "template <class T1, class T2>",
+      "ostream &operator<<(ostream &os, const pair<T1, T2> &p) {",
+      "\treturn os << '{' << p.first << \", \" << p.second << '}';",
+      "}",
+      "",
+      "template <class T, class = decay_t<decltype(*begin(declval<T>()))>,",
+      "\tclass = enable_if_t<!is_same<T, string>::value>>",
+      "ostream &operator<<(ostream &os, const T &c) {",
+      "\tos << '[';",
+      "\tfor (auto it = c.begin(); it != c.end(); ++it)",
+      "\t\tos << &\", \"[2 * (it == c.begin())] << *it;",
+      "\treturn os << ']';",
+      "}",
+      "//support up to 5 args",
+      "#define _NTH_ARG(_1, _2, _3, _4, _5, _6, N, ...) N",
+      "#define _FE_0(_CALL, ...)",
+      "#define _FE_1(_CALL, x) _CALL(x)",
+      "#define _FE_2(_CALL, x, ...) _CALL(x) _FE_1(_CALL, __VA_ARGS__)",
+      "#define _FE_3(_CALL, x, ...) _CALL(x) _FE_2(_CALL, __VA_ARGS__)",
+      "#define _FE_4(_CALL, x, ...) _CALL(x) _FE_3(_CALL, __VA_ARGS__)",
+      "#define _FE_5(_CALL, x, ...) _CALL(x) _FE_4(_CALL, __VA_ARGS__)",
+      "#define FOR_EACH_MACRO(MACRO, ...)                                             \\",
+      "\t_NTH_ARG(dummy, ##__VA_ARGS__, _FE_5, _FE_4, _FE_3, _FE_2, _FE_1, _FE_0)     \\",
+      "\t(MACRO, ##__VA_ARGS__)",
+      "//Change output format here",
+      "#define watch(x) cerr << \"\\033[1;32m\" #x \" = \\033[1;34m\" << (x) << \"\\033[0m; \";",
+      "#define dbg(...)                                                              \\",
+      "\tcerr << \"\\033[2;31mLine \" << __LINE__ << \": \\033[0;m\"; \\",
+      "\tFOR_EACH_MACRO(watch, __VA_ARGS__)                     \\",
+      "\tcerr << endl",
+      "#else",
+      "#define dbg(...)",
+      "#define watch(...)",
+      "#endif"
+    ],
+    "description": "Template for debugging"
+  },
+  "for loop": {
+    "prefix": "FOR",
+    "body": [
+      "for (${1:int} ${2:i} = ${3:1}; ${2:i} <= ${4:n}; ${2:i}++) "
+    ],
+    "description": "All elements"
+  },
+  "reversed for loop": {
+    "prefix": "FORR",
+    "body": [
+      "for (${1:int} ${2:i} = ${3:n}; ${2:i} >= ${4:1}; ${2:i}--) "
+    ],
+    "description": "All elements"
+  }
+}

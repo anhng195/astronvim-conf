@@ -9,6 +9,13 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+    {
+      "L3MON4D3/LuaSnip",
+      config = function(plugin, opts)
+        require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
+        require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } } -- load snippets paths
+      end,
+    },
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   {
     "ray-x/lsp_signature.nvim",
@@ -24,7 +31,7 @@ return {
     "CRAG666/code_runner.nvim",
     config = function()
       require('code_runner').setup {
-
+        -- mode = "toggleterm",
         filetype = {
           java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
           python = "python3 -u",
@@ -33,7 +40,7 @@ return {
           rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
           -- cpp="gcc $fileName -lstdc++ -o $fileNameWithoutExt && $fileNameWithoutExt"
           cpp =
-          "cd $dir && rm -f $fileNameWithoutExt && g++ $fileName -std=c++17 -O2 -Wall -o $fileNameWithoutExt && echo -e \"\\e[1;32mOutput:\\e[1;0m\" && ./$fileNameWithoutExt",
+          "cd $dir && rm -f $fileNameWithoutExt && g++ -g $fileName -std=c++17 -o $fileNameWithoutExt && echo -e \"\\e[1;32mOutput:\\e[1;0m\" && ./$fileNameWithoutExt",
           scss = "sass $dir/$fileName $dir/$fileNameWithoutExt.css",
         },
       }
