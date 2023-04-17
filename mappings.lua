@@ -8,10 +8,15 @@ return {
   n = {
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
-    ["<leader>tt"] = { "<cmd>ToggleTerm size=10 direction=horizontal dir=%:p:h<cr>", desc = "ToggleTerm horizontal split" },
+    
+    -- term
+    ["<leader>tt"] = { "<cmd>ToggleTerm size=10 direction=horizontal dir=%:p:h<cr>", desc = "ToggleTerm current file's directory" },
 
+    -- debugging
+    ["<leader>dg"] = { "<cmd>term gdb -tui %:r<cr>", desc = "Debug with gdb" },
 
-    ["<leader>rr"] = { "<cmd>RunCode<cr>", desc = "Run code" },
+    -- run code
+    ["<leader>rr"] = { "<cmd>w<bar>RunCode<cr>", desc = "Run code" },
     ["<leader>rf"] = { "<cmd>RunFile<cr>", desc = "Run file" },
     ["<leader>rp"] = { "<cmd>RunProject<cr>", desc = "Run project" },
     ["<leader>rc"] = { "<cmd>RunClose<cr>", desc = "Close runner" },

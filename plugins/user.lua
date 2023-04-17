@@ -32,15 +32,28 @@ return {
     config = function()
       require('code_runner').setup {
         -- mode = "toggleterm",
-        filetype = {
-          java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        filetype = {    
+          java = {
+            "cd $dir &&",
+            "javac $fileName &&",
+            "java $fileNameWithoutExt"
+          },
           python = "python3 -u",
           typescript = "deno run",
+          rust = {
+            "cd $dir &&",
+            "rustc $fileName &&",
+            "$dir$fileNameWithoutExt"
+          },
           javascript = "node $fileName",
-          rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
           -- cpp="gcc $fileName -lstdc++ -o $fileNameWithoutExt && $fileNameWithoutExt"
-          cpp =
-          "cd $dir && rm -f $fileNameWithoutExt && g++ -g $fileName -std=c++17 -o $fileNameWithoutExt && echo -e \"\\e[1;32mOutput:\\e[1;0m\" && ./$fileNameWithoutExt",
+          cpp = {
+            "cd $dir &&",
+            "rm -f $fileNameWithoutExt &&",
+            "g++ -g $fileName -std=c++17 -o $fileNameWithoutExt &&",
+            "echo -e \"\\e[1;32mOutput:\\e[1;0m\" &&",
+            "./$fileNameWithoutExt"
+          },
           scss = "sass $dir/$fileName $dir/$fileNameWithoutExt.css",
         },
       }
