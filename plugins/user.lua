@@ -43,7 +43,7 @@ return {
           rust = {
             "cd $dir &&",
             "rustc $fileName &&",
-            "$dir$fileNameWithoutExt"
+            "./$fileNameWithoutExt"
           },
           javascript = "node $fileName",
           -- cpp="gcc $fileName -lstdc++ -o $fileNameWithoutExt && $fileNameWithoutExt"
