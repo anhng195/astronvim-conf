@@ -9,18 +9,16 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-    {
-      "L3MON4D3/LuaSnip",
-      config = function(plugin, opts)
-        require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
-        require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } } -- load snippets paths
-      end,
-    },
+  {
+    "L3MON4D3/LuaSnip",
+    config = function(plugin, opts)
+      require "plugins.configs.luasnip" (plugin, opts)                                       -- include the default astronvim config that calls the setup call
+      require("luasnip.loaders.from_vscode").lazy_load { paths = { "./lua/user/snippets" } } -- load snippets paths
+    end,
+  },
   { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
   {
     "ray-x/lsp_signature.nvim",
-    -- event = "InsertEnter",
-    -- after = 'nvim-cmp',
     lazy = false,
     config = function()
       -- require('lsp_signature').load()
@@ -32,7 +30,7 @@ return {
     config = function()
       require('code_runner').setup {
         -- mode = "toggleterm",
-        filetype = {    
+        filetype = {
           java = {
             "cd $dir &&",
             "javac $fileName &&",
@@ -74,4 +72,15 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
+
 }
